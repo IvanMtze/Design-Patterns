@@ -1,14 +1,14 @@
-#Builder
+# Builder
 ###Intent
 Separate the construction of a complex object from its representation so that the
 same construction process can create different representations.
  
 
-###Motivation
+### Motivation
 the Builder pattern separates the algorithm for interpreting a textual
 format from how a converted format gets created and represented.
 
-###Applicability
+### Applicability
 Use the Builder pattern when
 
 1.-the algorithm for creating a complex object should be independent of the
@@ -17,23 +17,23 @@ Use the Builder pattern when
 2.-the construction process must allow different representations for the object
    that's constructed.
 
-###Participants
+### Participants
 
-####Builder (TextConverter)
+#### Builder (TextConverter)
 specifies an abstract interface for creating parts of a Product object.
 
-####ConcreteBuilder
+#### ConcreteBuilder
 ConcreteBuilder (ASCIIConverter, TeXConverter, TextWidgetConverter)
 - constructs and assembles parts of the product by implementing the Builder
 interface.
 - defines and keeps track of the representation it creates.
 - provides an interface for retrieving the product.
 
-####Director (RTFReader)
+#### Director (RTFReader)
 
 -constructs an object using the Builder interface.
 
-####Product
+#### Product
 - represents the complex object under construction. ConcreteBuilder builds
 the product's internal representation and defines the process by which it's
 assembled.
@@ -41,7 +41,7 @@ assembled.
 assembling the parts into the final result
 
 
-###Consequences
+### Consequences
 Here are key consequences of the Builder pattern:
 - It lets you vary a product's internal representation. The Builder object provides
 the director with an abstract interface for constructing the product. The in-
@@ -56,7 +56,7 @@ product. It also hides how the product gets assembled.
   is finished does the director retrieve it from the builder.
   
   
-###Implementation
+### Implementation
 Typically there's an abstract Builder class that defines an operation for each com-
 ponent that a director may ask it to create. The operations do nothing by default.
 A ConcreteBuilder class overrides operations for components it's interested in
